@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">X5web</string>
+    <string name="action_settings">设置</string>
+    <string name="title_activity_mini_qb">MiniQBActivity</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="tag"> (X5内核功能演示)</string>
+    <string name="tip">普通接入直接参考“APP” “BrowserActivity” “X5WebView”中相关实现即可</string>
+
+    <string-array name="index_titles">
+        <item>浏览器demo</item>
+        <item>全屏播放</item>
+        <item>TbsVideo播放视频</item>
+    </string-array>
+</resources>
