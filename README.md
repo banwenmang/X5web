@@ -8,9 +8,9 @@
 
 > 普通接入参考项目中的 `App、BrowserActivity、X5WebView` 等类中相关实现。
 
-###第一步:下载jar包并添加至项目###
+### 第一步:下载jar包并添加至项目 ###
 
-###第二步:Android studio修改相关配置###
+### 第二步:Android studio修改相关配置 ###
 
 * 打开对应module中的build.gradle添加的，若配置后编译报错，需在gradle.properties加上 `Android.useDeprecatedNdk=true`
 
@@ -23,7 +23,7 @@
 
 ![配置图](https://github.com/banwenmang/X5web/blob/master/x5web_step2.png)
 
-###第三步：AndroidManifest.xml里权限声明###
+### 第三步：AndroidManifest.xml里权限声明 ###
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -35,7 +35,7 @@
 
 ![配置图](https://github.com/banwenmang/X5web/blob/master/x5web_step3.png)
 
-###第四步：Application中对*初始化x5内核接口*###
+### 第四步：Application中对*初始化x5内核接口* ###
     QbSdk.PreInitCallback cb = new QbSdk.PreInitCallback() {
 
         @Override
@@ -55,7 +55,7 @@
 
 ![配置图](https://github.com/banwenmang/X5web/blob/master/x5web_step4.png)
 
-###第五步：创建X5WebView继承*SDK中WebView*###
+### 第五步：创建X5WebView继承*SDK中WebView* ###
 >	声明WebViewClient
 
 	private WebViewClient client = new WebViewClient() {
@@ -122,7 +122,7 @@
         canvas.restore();
         return ret;
     }
-###第六步：调整cookie的使用###
+### 第六步：调整cookie的使用 ###
 >com.tencent.smtt.sdk.CookieManager和com.tencent.smtt.sdk.CookieSyncManager的相关接口的调用，在接入SDK后，需要放到创建X5的WebView之后（也就是X5内核加载完成）进行；否则，cookie的相关操作只能影响系统内核。
 
 >可参项目`BrowserActivity`类中 `initWebViewSetting()`
@@ -163,7 +163,7 @@
         CookieSyncManager.getInstance().sync();
     }
 
-###第七步：兼容视屏播放###
+### 第七步：兼容视屏播放 ###
 1) 享受页面视屏的完整播放体验，需如下声明：
 >
 	页面的Activity需要声明android:configChanges="orientation|screenSize|keyboardHidden"
@@ -177,7 +177,7 @@
 
     *webview.setLayerType();*
     *webview.setDrawingCacheEnabled(true);*
-###第八步：避免输入法界面弹出后遮挡输入光标的问题
+### 第八步：避免输入法界面弹出后遮挡输入光标的问题 ###
 **方法一**：*在AndroidManifest.xml中设置*
 
 	android:windowSoftInputMode="stateHidden|adjustResize"
