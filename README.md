@@ -1,7 +1,7 @@
 # X5web TBS腾讯浏览服务的SDK接入-Android studio #
 
 
-[**我的博客**](https://x5.tencent.com/tbs/index.html)
+[**我的博客**](http://blog.csdn.net/wenmang_star/article/details/72911605)
 ----------
 
 [**TBS官网**](https://x5.tencent.com/tbs/index.html)
