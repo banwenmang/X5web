@@ -226,4 +226,4 @@ public static void openVideo(Context context, String videoUrl, Bundle extraData)
 
 **源码附上**
 
-[**https://github.com/banwenmang/X5web/master**](https://github.com/banwenmang/X5web/master)
+[**https://github.com/banwenmang/X5web**](https://github.com/banwenmang/X5web)
