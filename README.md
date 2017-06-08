@@ -227,4 +227,4 @@
 
 **源码附上**
 
-[**https://github.com/banwenmang/X5web/tree/master**](https://github.com/banwenmang/X5web/master)
+[**https://github.com/banwenmang/X5web/master**](https://github.com/banwenmang/X5web/master)
