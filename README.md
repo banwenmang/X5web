@@ -14,7 +14,7 @@
 
 * 打开对应module中的build.gradle添加的，若配置后编译报错，需在gradle.properties加上 `Android.useDeprecatedNdk=true`
 
-        android{
+      android{
     		defaultConfig{
     			ndk{abiFilters "armeabi"}
     		}
@@ -191,37 +191,36 @@
 ## 补充：Tbs视频播放器接入说明 ##
 1.	第一步：AndroidManifest需要如下的注册：
 
-    	<!--视频-->
-        <activity
-            android:name="com.tencent.smtt.sdk.VideoActivity"
-            android:alwaysRetainTaskState="true"
-            android:configChanges="orientation|screenSize|keyboardHidden"
-            android:exported="false"
-            android:launchMode="singleTask">
-            <intent-filter>
-                <action android:name="com.tencent.smtt.tbs.video.PLAY"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-            </intent-filter>
-        </activity>
+    <!--视频-->
+    <activity
+        android:name="com.tencent.smtt.sdk.VideoActivity"
+        android:alwaysRetainTaskState="true"
+        android:configChanges="orientation|screenSize|keyboardHidden"
+        android:exported="false"
+        android:launchMode="singleTask">
+        <intent-filter>
+            <action android:name="com.tencent.smtt.tbs.video.PLAY"/>
+            <category android:name="android.intent.category.DEFAULT"/>
+        </intent-filter>
+    </activity>
 
 2.	第二步：通过TbsVideo调用播放视频，如下：
->public static boolean canUseTbsPlayer(Context context)
+
+public static boolean canUseTbsPlayer(Context context)
 //判断当前Tbs播放器是否已经可以使用。
 
->public static void openVideo(Context context, String videoUrl)
+public static void openVideo(Context context, String videoUrl)
 //直接调用播放接口，传入视频流的url
 
->public static void openVideo(Context context, String videoUrl, Bundle extraData)
+public static void openVideo(Context context, String videoUrl, Bundle extraData)
 //extraData对象是根据定制需要传入约定的信息，没有需要可以传如null
 
-		//判断当前Tbs播放器是否已经可以使用。
-    	if (TbsVideo.canUseTbsPlayer(MainActivity.this)) {
+    //判断当前Tbs播放器是否已经可以使用。
+    if (TbsVideo.canUseTbsPlayer(MainActivity.this)) {
 
-        	//直接调用播放接口，传入视频流的url
-        	TbsVideo.openVideo(MainActivity.this, "http://192.168.3.108:8080/alert_icon.mp4");
-    	}
-
-
+        //直接调用播放接口，传入视频流的url
+        TbsVideo.openVideo(MainActivity.this, "http://192.168.3.108:8080/alert_icon.mp4");
+    }
 
 **希望对大家有帮助**
 
