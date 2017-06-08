@@ -8,9 +8,9 @@
 
 > 普通接入参考项目中的 `App、BrowserActivity、X5WebView` 等类中相关实现。
 
-###第一步:下载jar包并添加至项目
+###第一步:下载jar包并添加至项目###
 
-###第二步:Android studio修改相关配置
+###第二步:Android studio修改相关配置###
 
 * 打开对应module中的build.gradle添加的，若配置后编译报错，需在gradle.properties加上 `Android.useDeprecatedNdk=true`
 
@@ -21,9 +21,9 @@
     	}
 * 在`src/main/`目录下创建`jniLibs`；在其创建 `armeabi`目录并加入`liblbs.so`文件。
 
-	![配置图](https://github.com/banwenmang/X5web/blob/master/x5web_step2.png)
+![配置图](https://github.com/banwenmang/X5web/blob/master/x5web_step2.png)
 
-###第三步：AndroidManifest.xml里权限声明
+###第三步：AndroidManifest.xml里权限声明###
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -33,9 +33,9 @@
 	<!-- 硬件加速对X5视频播放非常重要，建议开启 -->
     <uses-permission android:name="android.permission.GET_TASKS"/>
 
-	![配置图](https://github.com/banwenmang/X5web/blob/master/x5web_step3.png)
+![配置图](https://github.com/banwenmang/X5web/blob/master/x5web_step3.png)
 
-###第四步：Application中对*初始化x5内核接口*
+###第四步：Application中对*初始化x5内核接口*###
     QbSdk.PreInitCallback cb = new QbSdk.PreInitCallback() {
 
         @Override
@@ -53,9 +53,9 @@
     //x5内核初始化接口
     QbSdk.initX5Environment(getApplicationContext(), cb);
 
-	![配置图](https://github.com/banwenmang/X5web/blob/master/x5web_step4.png)
+![配置图](https://github.com/banwenmang/X5web/blob/master/x5web_step4.png)
 
-###第五步：创建X5WebView继承*SDK中WebView*
+###第五步：创建X5WebView继承*SDK中WebView*###
 >	声明WebViewClient
 
 	private WebViewClient client = new WebViewClient() {
@@ -122,7 +122,7 @@
         canvas.restore();
         return ret;
     }
-###第六步：调整cookie的使用
+###第六步：调整cookie的使用###
 >com.tencent.smtt.sdk.CookieManager和com.tencent.smtt.sdk.CookieSyncManager的相关接口的调用，在接入SDK后，需要放到创建X5的WebView之后（也就是X5内核加载完成）进行；否则，cookie的相关操作只能影响系统内核。
 
 >可参项目`BrowserActivity`类中 `initWebViewSetting()`
@@ -163,7 +163,7 @@
         CookieSyncManager.getInstance().sync();
     }
 
-###第七步：兼容视屏播放
+###第七步：兼容视屏播放###
 1) 享受页面视屏的完整播放体验，需如下声明：
 >
 	页面的Activity需要声明android:configChanges="orientation|screenSize|keyboardHidden"
@@ -227,4 +227,4 @@
 
 **源码附上**
 
-[**https://github.com/banwenmang/X5web/tree/master**](https://github.com/banwenmang/X5web/tree/master)
+[**https://github.com/banwenmang/X5web/tree/master**](https://github.com/banwenmang/X5web/master)
